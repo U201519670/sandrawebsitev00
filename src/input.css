@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * PALETA PROQUIM — extraída del diseño de referencia y el logo
+ * ─────────────────────────────────────────────────────────────
+ * Azul marino (fondo oscuro / footer):  #1A2F4B  → hsl(213 48% 19%)
+ * Azul cielo / primary:                 #1F8FD6  → hsl(204 74% 48%)
+ * Azul hielo (hero bg):                 #EAF3FB  → hsl(207 73% 95%)
+ * Verde lima / accent (engranaje logo): #7DC242  → hsl(93 48% 51%)
+ * Marrón logo "P":                      #6B3E26  → hsl(22 46% 28%)
+ * Gris texto secundario:                #64748B  → hsl(215 16% 47%)
+ * Borde / separadores:                  #DDE8F0  → hsl(207 43% 90%)
+ * Blanco fondo:                         #FFFFFF  → hsl(0 0% 100%)
+ */
+
+@layer base {
+  :root {
+    /* Fondos */
+    --background:          0 0% 100%;           /* #FFFFFF */
+    --foreground:          213 48% 19%;          /* #1A2F4B azul marino */
+
+    /* Card */
+    --card:                0 0% 100%;
+    --card-foreground:     213 48% 19%;
+
+    /* Popover */
+    --popover:             0 0% 100%;
+    --popover-foreground:  213 48% 19%;
+
+    /* Primary — azul cielo (#1F8FD6) */
+    --primary:             204 74% 48%;
+    --primary-foreground:  0 0% 100%;
+
+    /* Secondary — azul marino suave */
+    --secondary:           207 73% 95%;          /* #EAF3FB hero bg */
+    --secondary-foreground: 213 48% 19%;
+
+    /* Muted */
+    --muted:               207 43% 93%;
+    --muted-foreground:    215 16% 47%;          /* #64748B */
+
+    /* Accent — verde lima (#7DC242) */
+    --accent:              93 48% 51%;
+    --accent-foreground:   0 0% 100%;
+
+    /* Destructive */
+    --destructive:         0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Bordes e inputs */
+    --border:              207 43% 90%;          /* #DDE8F0 */
+    --input:               207 43% 90%;
+    --ring:                204 74% 48%;          /* mismo que primary */
+
+    /* Radio y tokens extra */
+    --radius:              0.5rem;
+
+    /* Colores de marca directos (fuera del sistema Shadcn) */
+    --brand-navy:          213 48% 19%;          /* #1A2F4B */
+    --brand-blue:          204 74% 48%;          /* #1F8FD6 */
+    --brand-green:         93 48% 51%;           /* #7DC242 */
+    --brand-brown:         22 46% 28%;           /* #6B3E26 */
+    --brand-ice:           207 73% 95%;          /* #EAF3FB */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
