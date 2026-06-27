@@ -65,28 +65,108 @@ require __DIR__ . '/includes/layout/header-site.php';
 
 
 <!-- ═══════════════════════════════════════
-     STATS
+     SOLUCIONES POR INDUSTRIA
 ════════════════════════════════════════ -->
-<section class="bg-white py-16">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6">
-    <dl class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+<section class="relative overflow-hidden bg-gradient-to-b from-[#f0f7fd] via-white to-[#f8fbff] py-16 sm:py-20">
+  <!-- Decoración de fondo -->
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="absolute -left-16 top-8 h-48 w-48 rounded-full bg-blue/5 blur-3xl"></div>
+    <div class="absolute -right-10 bottom-0 h-56 w-56 rounded-full bg-green/5 blur-3xl"></div>
+    <svg class="absolute bottom-0 right-0 h-[min(55vw,420px)] w-[min(55vw,420px)] translate-x-1/4 translate-y-1/4 text-blue/[0.04]" viewBox="0 0 400 280" fill="currentColor">
+      <path d="M20 240V120h40v40h30V80h35v80h25V60h30v180H20zm200 0V100h28l12-40h32l12 40h28v140h-112zm56-36h48l-24-72-24 72zM300 240V140h20l10-28h24l10 28h20v100h-84z"/>
+      <circle cx="60" cy="40" r="6"/><circle cx="90" cy="25" r="4"/><circle cx="120" cy="45" r="5"/>
+      <path d="M55 55l20-12M85 35l15 10" stroke="currentColor" stroke-width="2" fill="none"/>
+    </svg>
+    <svg class="absolute left-6 top-10 h-24 w-24 text-blue/[0.06] sm:left-16 sm:h-32 sm:w-32" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="30" cy="50" r="8"/><circle cx="50" cy="30" r="8"/><circle cx="70" cy="50" r="8"/>
+      <path d="M38 50h14M50 38v14M58 50h14"/>
+    </svg>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+      <span class="mb-4 inline-block rounded-full bg-blue/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-blue">
+        Sectores industriales
+      </span>
+      <h2 class="text-3xl font-bold tracking-tight text-navy sm:text-4xl">Soluciones por Industria</h2>
+      <p class="mt-3 text-base leading-relaxed text-navy/60 sm:text-lg">
+        Productos químicos y soluciones diseñadas para impulsar la eficiencia, seguridad y sostenibilidad de cada industria.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
       <?php
-      $stats = [
-        ['value' => '25+',   'label' => 'Años de experiencia',    'icon' => 'trophy'],
-        ['value' => '500+',  'label' => 'Clientes satisfechos',   'icon' => 'handshake'],
-        ['value' => '1000+', 'label' => 'Productos activos',      'icon' => 'flask-conical'],
-        ['value' => '98%',   'label' => 'Tasa de satisfacción',   'icon' => 'star'],
+      $industrias = [
+        [
+          'label' => 'Minería',
+          'icon'  => 'pickaxe',
+          'href'  => 'productos.php?' . http_build_query(['cat' => ['quimicos para mineria']]),
+        ],
+        [
+          'label' => 'Agroindustria',
+          'icon'  => 'tractor',
+          'href'  => 'productos.php?' . http_build_query(['cat' => ['quimicos para agroindustria']]),
+        ],
+        [
+          'label' => 'Farmacéutico',
+          'icon'  => 'pill',
+          'href'  => 'productos.php?' . http_build_query(['q' => 'desinfectante']),
+        ],
+        [
+          'label' => 'Ind. Alimentos y bebidas',
+          'icon'  => 'utensils-crossed',
+          'href'  => 'productos.php?' . http_build_query(['cat' => ['quimicos para embotelladoras']]),
+        ],
+        [
+          'label' => 'Clínicas / hospitales',
+          'icon'  => 'hospital',
+          'href'  => 'productos.php?' . http_build_query(['q' => 'desinfectante']),
+        ],
+        [
+          'label' => 'Pesca',
+          'icon'  => 'fish',
+          'href'  => 'productos.php?' . http_build_query(['q' => 'hipoclorito']),
+        ],
+        [
+          'label' => 'Laboratorio',
+          'icon'  => 'microscope',
+          'href'  => 'productos.php?' . http_build_query(['cat' => ['Instrumentos de Laboratorio y Reactivos Quimicos']]),
+        ],
+        [
+          'label' => 'Piscinas',
+          'icon'  => 'waves',
+          'href'  => 'productos.php?' . http_build_query(['cat' => ['quimicos para piscinas y spa']]),
+        ],
+        [
+          'label' => 'Textil',
+          'icon'  => 'shirt',
+          'href'  => 'productos.php?' . http_build_query(['q' => 'detergente']),
+        ],
       ];
-      foreach ($stats as $s): ?>
-        <div class="group flex flex-col items-center gap-3 rounded-2xl border border-[#DDE8F0] bg-gradient-to-br from-ice/80 to-white px-4 py-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue/50 hover:shadow-lg">
-          <div class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue/10 to-green/10 transition-all duration-300 group-hover:scale-110 group-hover:from-blue/20 group-hover:to-green/20">
-            <i data-lucide="<?= $s['icon'] ?>" class="h-7 w-7 text-blue"></i>
+      foreach ($industrias as $ind): ?>
+        <a
+          href="<?= htmlspecialchars($ind['href'], ENT_QUOTES, 'UTF-8') ?>"
+          class="industria-card group flex items-center gap-4 rounded-xl border border-[#DDE8F0] bg-white/90 px-4 py-4 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue/40 hover:bg-white hover:shadow-lg hover:shadow-blue/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue sm:px-5 sm:py-5"
+        >
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue/10 to-green/10 transition-all duration-300 group-hover:scale-110 group-hover:from-blue/20 group-hover:to-green/15 sm:h-14 sm:w-14">
+            <i data-lucide="<?= htmlspecialchars($ind['icon'], ENT_QUOTES, 'UTF-8') ?>" class="h-6 w-6 text-blue transition-transform duration-300 group-hover:scale-105 sm:h-7 sm:w-7"></i>
           </div>
-          <dt class="text-3xl font-extrabold text-blue transition-all duration-300 group-hover:scale-105 sm:text-4xl"><?= $s['value'] ?></dt>
-          <dd class="text-sm font-medium text-navy/60 transition-colors group-hover:text-navy/80"><?= $s['label'] ?></dd>
-        </div>
+          <span class="text-sm font-semibold leading-snug text-navy transition-colors duration-300 group-hover:text-blue sm:text-base">
+            <?= htmlspecialchars($ind['label'], ENT_QUOTES, 'UTF-8') ?>
+          </span>
+          <svg class="ml-auto h-4 w-4 shrink-0 text-navy/20 transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
       <?php endforeach; ?>
-    </dl>
+    </div>
+
+    <div class="mt-10 text-center sm:mt-12">
+      <a href="productos.php" class="btn-primary px-8 py-3 text-base shadow-md transition hover:shadow-lg">
+        Explorar Productos
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
